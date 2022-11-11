@@ -1,0 +1,54 @@
+{
+    "name": "jackfinal/laravel-dm8",
+    "description": "php_dm dm8",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Jack Final",
+            "email": "final_m@foxmail.com"
+        }
+    ],
+    "require": {
+        "php": "^7.4",
+        "ext-pdo": "*",
+        "illuminate/database": ">5",
+        "illuminate/pagination": ">5",
+        "illuminate/support": ">5",
+        "illuminate/validation": ">5"
+    },
+    "require-dev": {
+        "doctrine/dbal": "^3.3",
+        "mockery/mockery": "^1.4.4",
+        "orchestra/testbench": "^7.0",
+        "phpunit/phpunit": "^9.5.8"
+    },
+    "autoload": {
+        "files": [
+          "src/helper.php"
+        ],
+        "psr-4": {
+            "LaravelDm8\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "LaravelDm8\\": "src/"
+        }
+    },
+    "extra": {
+        "branch-alias": {
+          "dev-master": "1.x-dev"
+        },
+        "laravel": {
+            "providers": [
+                "LaravelDm8\\Dm8\\Dm8ServiceProvider",
+                "LaravelDm8\\Dm8\\Dm8ValidationServiceProvider"
+            ]
+        }
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
