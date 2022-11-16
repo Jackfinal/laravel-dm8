@@ -9,7 +9,7 @@
         }
     ],
     "require": {
-        "php": "^7.4",
+        "php": ">7",
         "ext-pdo": "*",
         "illuminate/database": ">5",
         "illuminate/pagination": ">5",
