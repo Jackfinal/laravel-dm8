@@ -60,6 +60,7 @@ DB_PORT=5236
 DB_DATABASE=xe
 DB_USERNAME=hr
 DB_PASSWORD=hr
+DB_CHARSET=UTF8
 ```
 
 Then run your laravel installation...
