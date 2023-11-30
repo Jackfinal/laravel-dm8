@@ -24,7 +24,7 @@ class DmBuilder extends Builder
     public function __construct(Connection $connection)
     {
         parent::__construct($connection);
-        $this->helper = new OracleAutoIncrementHelper($connection);
+        $this->helper = new DmAutoIncrementHelper($connection);
         $this->comment = new Comment($connection);
     }
 
