@@ -458,7 +458,7 @@ class Dm8Connection extends Connection
      */
     public function useCaseInsensitiveSession()
     {
-        return $this->setSessionVars(['NLS_COMP' => 'LINGUISTIC', 'NLS_SORT' => 'BINARY_CI']);
+        // return $this->setSessionVars(['NLS_COMP' => 'LINGUISTIC', 'NLS_SORT' => 'BINARY_CI']);
     }
 
     /**
@@ -468,7 +468,7 @@ class Dm8Connection extends Connection
      */
     public function useCaseSensitiveSession()
     {
-        return $this->setSessionVars(['NLS_COMP' => 'BINARY', 'NLS_SORT' => 'BINARY']);
+        // return $this->setSessionVars(['NLS_COMP' => 'BINARY', 'NLS_SORT' => 'BINARY']);
     }
 
     /**
