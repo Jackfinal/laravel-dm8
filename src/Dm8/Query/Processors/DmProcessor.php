@@ -31,7 +31,7 @@ class DmProcessor extends Processor
         $statement = $this->prepareStatement($query, $sql);
         $values = $this->incrementBySequence($values, $sequence);
         $parameter = $this->bindValues($values, $statement, $parameter);
-        $statement->bindParam($parameter, $id, PDO::PARAM_INT, -1);
+        $statement->bindParam($parameter, $id, PDO::PARAM_INT, 32);
         $statement->execute();
 
         $connection->logQuery($sql, $values, $start);
@@ -156,12 +156,13 @@ class DmProcessor extends Processor
 
         $countBinary = count($binaries);
         for ($i = 0; $i < $countBinary; $i++) {
-            $statement->bindParam($parameter, $binaries[$i], PDO::PARAM_LOB, -1);
+            $lobLength = strlen((string) $binaries[$i]);
+            $statement->bindParam($parameter, $binaries[$i], PDO::PARAM_LOB, $lobLength > 0 ? $lobLength : 1);
             $parameter++;
         }
 
         // bind output param for the returning clause.
-        $statement->bindParam($parameter, $id, PDO::PARAM_INT, -1);
+        $statement->bindParam($parameter, $id, PDO::PARAM_INT, 32);
 
         if (! $statement->execute()) {
             return false;
