@@ -34,7 +34,9 @@ class DmProcessor extends Processor
         $statement->bindParam($parameter, $id, PDO::PARAM_INT, 32);
         $statement->execute();
 
-        $connection->logQuery($sql, $values, $start);
+        // Include the RETURNING output parameter in the query log bindings.
+        $bindings = array_merge($values, [$id]);
+        $connection->logQuery($sql, $bindings, round((microtime(true) - $start) * 1000, 2));
 
         return (int) $id;
     }
@@ -168,7 +170,9 @@ class DmProcessor extends Processor
             return false;
         }
 
-        $connection->logQuery($sql, $values, $start);
+        // Log input values, LOB parameters, and the output ID in placeholder order.
+        $bindings = array_merge($values, $binaries, [$id]);
+        $connection->logQuery($sql, $bindings, round((microtime(true) - $start) * 1000, 2));
 
         return (int) $id;
     }
